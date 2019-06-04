@@ -94,7 +94,7 @@ class ICheck extends InputWidget
                     self.iCheck({
                       checkboxClass: 'icheckbox_line',
                       radioClass: 'iradio_line',
-                      insert: '<div class="icheck_line-icon"></div>'
+                      insert: '<div class="icheck_line-icon"></div>' + label_text
                     });
                   });
                  } else {
@@ -107,7 +107,7 @@ class ICheck extends InputWidget
                         self.iCheck({
                           checkboxClass: 'icheckbox_line-$this->color',
                           radioClass: 'iradio_line-$this->color',
-                          insert: '<div class="icheck_line-icon"></div>'
+                          insert: '<div class="icheck_line-icon"></div>' + label_text
                         });
                   });
                  }
