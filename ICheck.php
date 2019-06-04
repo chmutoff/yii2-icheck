@@ -10,6 +10,7 @@ namespace phpnt\ICheck;
 
 use yii\bootstrap\Html;
 use yii\helpers\Json;
+use yii\web\View;
 use yii\widgets\InputWidget;
 
 class ICheck extends InputWidget
@@ -81,45 +82,25 @@ class ICheck extends InputWidget
         $this->checkOptions = Json::encode($this->checkOptions);
 
         $js = <<< JS
-        
-            $(document).ready(function(){
-             if ('$this->style' == 'line') {
-                 if ('$this->color' == 'line') {
-                 $('#$this->idItem > input').each(function(){
+            if ('$this->style' == 'line') {
+                $('#$this->idItem > input').each(function(){
                     var self = $(this),
                       label = self.next(),
                       label_text = label.text();
                 
                     label.remove();
                     self.iCheck({
-                      checkboxClass: 'icheckbox_line',
-                      radioClass: 'iradio_line',
+                      checkboxClass: ('$this->color' == 'line') ? 'icheckbox_line' : 'icheckbox_line-$this->color',
+                      radioClass: ('$this->color' == 'line') ? 'iradio_line' : 'iradio_line-$this->color',
                       insert: '<div class="icheck_line-icon"></div>' + label_text
                     });
-                  });
-                 } else {
-                     $('#$this->idItem > input').each(function(){
-                        var self = $(this),
-                          label = self.next(),
-                          label_text = label.text();
-                    
-                        label.remove();
-                        self.iCheck({
-                          checkboxClass: 'icheckbox_line-$this->color',
-                          radioClass: 'iradio_line-$this->color',
-                          insert: '<div class="icheck_line-icon"></div>' + label_text
-                        });
-                  });
-                 }
-              } 
-            if ('$this->style' == 'minimal' || '$this->style' == 'square' || '$this->style' == 'flat' || '$this->style' == 'polaris' || '$this->style' == 'futurico') {
-                $(document).ready(function () {
-                    $(".i-checks-$this->id").iCheck($this->checkOptions);
-                }); 
-            }              
-        });
+                });
+            }
+            else if ('$this->style' == 'minimal' || '$this->style' == 'square' || '$this->style' == 'flat' || '$this->style' == 'polaris' || '$this->style' == 'futurico') {
+                $(".i-checks-$this->id").iCheck($this->checkOptions);
+            }
 JS;
-        $view->registerJs($js);
+        $view->registerJs($js, View::POS_READY);
     }
 
     private function getCheckOptions() {
