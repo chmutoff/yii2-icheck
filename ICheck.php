@@ -46,9 +46,7 @@ class ICheck extends InputWidget
             $this->color = 'futurico';
         }
         $this->color = ($this->color != 'black') ? $this->color : 'minimal';
-        $this->options += [
-            'class' => 'i-checks-'.$this->id
-        ];
+        $this->options['class'] = 'i-checks-'.$this->id;
         $this->idItem = $this->options['id'];
     }
 
@@ -128,66 +126,47 @@ JS;
         switch ($this->style) {
             case 'minimal':
                 if ($this->color == 'minimal') {
-                    $this->checkOptions += [
-                        'checkboxClass' => 'icheckbox_'.$this->style.'',
-                        'radioClass' => 'iradio_'.$this->style.'',
-                    ];
+                    $this->checkOptions['checkboxClass'] = 'icheckbox_'.$this->style.'';
+                    $this->checkOptions['radioClass'] = 'iradio_'.$this->style.'';
                 } else {
-                    $this->checkOptions += [
-                        'checkboxClass' => 'icheckbox_'.$this->style.'-'.$this->color,
-                        'radioClass' => 'iradio_'.$this->style.'-'.$this->color,
-                    ];
+                    $this->checkOptions['checkboxClass'] = 'icheckbox_'.$this->style.'-'.$this->color;
+                    $this->checkOptions['radioClass'] = 'iradio_'.$this->style.'-'.$this->color;
                 }
                 break;
             case 'square':
                 if ($this->color == 'square') {
-                    $this->checkOptions += [
-                        'checkboxClass' => 'icheckbox_'.$this->style.'',
-                        'radioClass' => 'iradio_'.$this->style.'',
-                    ];
+                    $this->checkOptions['checkboxClass'] = 'icheckbox_'.$this->style.'';
+                    $this->checkOptions['radioClass'] = 'iradio_'.$this->style.'';
                 } else {
-                    $this->checkOptions += [
-                        'checkboxClass' => 'icheckbox_'.$this->style.'-'.$this->color,
-                        'radioClass' => 'iradio_'.$this->style.'-'.$this->color,
-                    ];
+                    $this->checkOptions['checkboxClass'] = 'icheckbox_'.$this->style.'-'.$this->color;
+                    $this->checkOptions['radioClass'] = 'iradio_'.$this->style.'-'.$this->color;
                 }
                 break;
             case 'flat':
                 if ($this->color == 'flat') {
-                    $this->checkOptions += [
-                        'checkboxClass' => 'icheckbox_'.$this->style.'',
-                        'radioClass' => 'iradio_'.$this->style.'',
-                    ];
+                    $this->checkOptions['checkboxClass'] = 'icheckbox_'.$this->style.'';
+                    $this->checkOptions['radioClass'] = 'iradio_'.$this->style.'';
                 } else {
-                    $this->checkOptions += [
-                        'checkboxClass' => 'icheckbox_'.$this->style.'-'.$this->color,
-                        'radioClass' => 'iradio_'.$this->style.'-'.$this->color,
-                    ];
+                    $this->checkOptions['checkboxClass'] = 'icheckbox_'.$this->style.'-'.$this->color;
+                    $this->checkOptions['radioClass'] = 'iradio_'.$this->style.'-'.$this->color;
                 }
                 break;
             case 'line':
                 if ($this->color == 'line') {
-                    $this->checkOptions += [
-                        'checkboxClass' => 'icheckbox_'.$this->style.'',
-                        'radioClass' => 'iradio_'.$this->style.'',
-                    ];
+                    $this->checkOptions['checkboxClass'] = 'icheckbox_'.$this->style.'';
+                    $this->checkOptions['radioClass'] = 'iradio_'.$this->style.'';
                 } else {
-                    $this->checkOptions += [
-                        'checkboxClass' => 'icheckbox_'.$this->style.'-'.$this->color,
-                        'radioClass' => 'iradio_'.$this->style.'-'.$this->color,
-                    ];
+                    $this->checkOptions['checkboxClass'] = 'icheckbox_'.$this->style.'-'.$this->color;
+                    $this->checkOptions['radioClass'] = 'iradio_'.$this->style.'-'.$this->color;
                 }
                 break;
             case 'polaris':
-                $this->checkOptions += [
-                    'checkboxClass' => 'icheckbox_'.$this->style.'',
-                    'radioClass' => 'iradio_'.$this->style.'',
-                ];
+                $this->checkOptions['checkboxClass'] = 'icheckbox_'.$this->style.'';
+                $this->checkOptions['radioClass'] = 'iradio_'.$this->style.'';
+                break;
             case 'futurico':
-                $this->checkOptions += [
-                    'checkboxClass' => 'icheckbox_'.$this->style.'',
-                    'radioClass' => 'iradio_'.$this->style.'',
-                ];
+                $this->checkOptions['checkboxClass'] = 'icheckbox_'.$this->style.'';
+                $this->checkOptions['radioClass'] = 'iradio_'.$this->style.'';
                 break;
         }
     }
